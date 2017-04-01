@@ -26,7 +26,7 @@ log in as root, sync thrice, and use ^E and `quit`.
 To see how the system was configured, read the "runsetup" and
 "runsetup2" scripts.  
 
-The tape image is fetched from 
+The tape image is originally from
 http://doc.cat-v.org/unix/v6/operating-systems-lecture-notes/v6/
 
 The setup scripts are based on instructions from
