@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm -f rk[012]
+rm -f dist.tap

@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# setup a fresh unix v6 system from tape.
+# note: this will erase your previous system!
+#
+
+if [ -e rk0 -o -e rk1 -o -e rk2 ] ; then 
+    if [ $# -ne 1 -o "x$1" != "xy" ] ; then
+        echo "This will wipe your current v6 system!  Run with 'y' on command"
+        echo "line to confirm!"
+        echo
+        echo "usage:  $0 y"
+        exit 1
+    fi
+    rm -f rk[012]
+fi
+
+if [ ! -f dist.tap ] ; then
+    url=http://doc.cat-v.org/unix/v6/operating-systems-lecture-notes/v6/dist.tap
+    echo "fetching dist.tap.  If you don't have wget you can fetch this"
+    echo "manually from $url"
+    wget $url
+fi
+
+./runsetup
+./runsetup2

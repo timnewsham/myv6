@@ -1,0 +1,40 @@
+#!/usr/bin/env expect
+#
+# Copy image from tape to disk so we can boot into unix for further setup.
+# see http://minnie.tuhs.org/PUPS/Setup/v6_setup.html
+#
+
+source common.tcl
+
+spawn pdp11
+
+simh "set cpu 11/40"
+simh "set tm0 locked"
+simh "attach tm0 dist.tap"
+simh "attach rk0 rk0"
+simh "attach rk1 rk1"
+simh "attach rk2 rk2"
+simh "d cpu 100000 012700"
+simh "d cpu 100002 172526"
+simh "d cpu 100004 010040"
+simh "d cpu 100006 012740"
+simh "d cpu 100010 060003"
+simh "d cpu 100012 000777"
+simh "g 100000"
+
+after 100 send $break
+simh "go 0"
+
+respond "=" "tmrk\r"
+respond "offset" "0\r"
+respond "offset" "100\r"
+respond "count" "1\r"
+
+respond "=" "tmrk\r"
+respond "offset" "1\r"
+respond "offset" "101\r"
+respond "count" "3999\r"
+
+respond "=" $break
+simh "quit"
+expect eof
