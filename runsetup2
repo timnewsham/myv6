@@ -101,6 +101,12 @@ sendline "q"
 unix "mkdir /usr/user"
 unix "chown user /usr/user"
 
+# enable 8 serial ttys
+unix "ed /etc/ttys"
+sendline "1,8s/^0/1/"
+sendline "w"
+sendline "q"
+
 # cleanup
 #unix "icheck /dev/rrk0"
 #unix "dcheck /dev/rrk0"

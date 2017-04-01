@@ -19,7 +19,9 @@ Once you have built your clean system, run it with simh's pdp11 emulator:
    quit
 ```
 
-telnet to `localhost 5555` to connect to the "serial" lines.
+You can log in as "user" or "root".  Eight configured serial lines 
+can be reached with `telnet localhost 5555`.  To gracefully shut down,
+log in as root, sync thrice, and use ^E and `quit`.
 
 To see how the system was configured, read the "runsetup" and
 "runsetup2" scripts.  
