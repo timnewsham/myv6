@@ -1,8 +1,7 @@
 This directory contains the files needed to build a clean UNIX v6
 installation from tape.  It requires that you have "expect" and
-simh's "pdp11" and "wget" installed in your path.  
-(Ubuntu: `apt-get install simh expect wget`).  
-To build a new system run:
+simh's "pdp11" and "wget" installed in your path.  (Ubuntu: 
+`apt-get install simh expect wget`).  To build a new system run:
 
 ```sh
    $ ./setup
